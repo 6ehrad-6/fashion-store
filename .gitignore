@@ -1,0 +1,41 @@
+# ===== Dependencies =====
+node_modules/
+*/node_modules/
+**/node_modules/
+
+# ===== Environment Variables =====
+.env
+.env.local
+.env.*.local
+*.env
+
+# ===== Uploads (عکس‌ها آپلود می‌شن) =====
+# backend/uploads/*   
+# !backend/uploads/.gitkeep
+
+# ===== Build Output =====
+dist/
+build/
+*/dist/
+*/build/
+
+# ===== Logs =====
+logs/
+*.log
+npm-debug.log*
+
+# ===== Cache =====
+.cache/
+.vite/
+.eslintcache
+
+# ===== IDE =====
+.vscode/
+.idea/
+*.swp
+*~
+
+# ===== OS =====
+.DS_Store
+Thumbs.db
+desktop.ini

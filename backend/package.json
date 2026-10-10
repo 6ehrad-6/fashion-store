@@ -1,0 +1,24 @@
+{
+  "name": "fashion-store-backend",
+  "version": "1.0.0",
+  "description": "Backend for fashion store",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "seed": "node src/scripts/seedProducts.js",
+    "create-admin": "node src/scripts/createAdmin.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.0.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.0",
+    "multer": "^1.4.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}

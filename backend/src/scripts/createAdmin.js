@@ -8,26 +8,30 @@ const createAdmin = async () => {
     await mongoose.connect(process.env.MONGODB_URI);
     console.log('✅ متصل شد');
 
-    const adminEmail = 'admin@fashion.com';
+    // ✅ خواندن اطلاعات از متغیرهای محیطی با مقادیر پیش‌فرض
+    const adminEmail = process.env.ADMIN_EMAIL || 'admin@fashion.com';
+    const adminPassword = process.env.ADMIN_PASSWORD || 'Admin123!';
+    const adminFullName = process.env.ADMIN_FULLNAME || 'مدیر فروشگاه';
     
     const adminExists = await User.findOne({ email: adminEmail });
     if (adminExists) {
       console.log('⚠️ ادمین قبلاً وجود دارد');
       console.log('📧 ایمیل:', adminEmail);
-      console.log('🔑 رمز عبور: Admin123!');
+      console.log('💡 برای تغییر رمز، از پنل مدیریت استفاده کنید');
       process.exit(0);
     }
 
     await User.create({
-      fullName: 'مدیر فروشگاه',
+      fullName: adminFullName,
       email: adminEmail,
-      password: 'Admin123!',
+      password: adminPassword,
       role: 'admin',
     });
 
     console.log('✅ ادمین با موفقیت ساخته شد');
     console.log('📧 ایمیل:', adminEmail);
-    console.log('🔑 رمز عبور: Admin123!');
+    console.log('🔑 رمز عبور:', adminPassword);
+    console.log('⚠️ لطفاً بعد از اولین ورود، رمز عبور را تغییر دهید');
 
     process.exit(0);
   } catch (error) {
